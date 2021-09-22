@@ -1,9 +1,9 @@
 function generateStateArray(data) {
   const sudokuArr = [];
-  data.board.map((row, rowIndex) => {
+  data.board.forEach((row, rowIndex) => {
     const cols = [];
     sudokuArr.push({ cols: cols, rowNum: rowIndex });
-    row.map((col, colIndex) => {
+    row.forEach((col, colIndex) => {
       cols.push([col, colIndex]);
     });
   });

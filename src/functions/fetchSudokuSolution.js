@@ -10,7 +10,7 @@ function fetchSudokuSolution(data,callback1, callback2) {
     );
   const encodeParams = (params) =>
     Object.keys(params)
-      .map((key) => key + "=" + `%5B${encodeBoard(params[key])}%5D`)
+      .map((key) => key + `=%5B${encodeBoard(params[key])}%5D`)
       .join("&");
 
   fetch("https://sugoku.herokuapp.com/solve", {
