@@ -13,8 +13,8 @@ function Game() {
   const [solution, setSolution] = useState(0);
   const [solved, setSolved] = useState("not submitted");
   const [timerSec, setTimerSec] = useState(0);
-  const [timer, setTimer] = useState(true);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const myAbortController = new AbortController();
   const { level } = useParams();
 
@@ -32,7 +32,7 @@ function Game() {
     return () => {
       myAbortController.abort();
     };
-  }, [level]);
+  }, [level, myAbortController]);
 
   useEffect(() => {
     const setTimeSec = () =>
