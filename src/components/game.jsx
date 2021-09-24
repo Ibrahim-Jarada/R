@@ -1,4 +1,4 @@
-import React, { useState, useEffect ,useMemo} from "react";
+import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import fetchGeneratedSudoku from "../functions/fetchGeneratedSudoku";
 import fetchSudokuSolution from "../functions/fetchSudokuSolution";
@@ -16,9 +16,8 @@ function Game() {
 
   const { level } = useParams();
   
-  const myAbortController =useMemo(()=>new AbortController(),[]);
-  console.log(myAbortController)
   useEffect(() => {
+    const myAbortController =new AbortController();
     if (level) {
       fetchGeneratedSudoku(
         level,
@@ -32,7 +31,6 @@ function Game() {
     return () => {
       myAbortController.abort();
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [level]);
 
   useEffect(() => {
