@@ -31,7 +31,8 @@ function Game() {
     return () => {
       myAbortController.abort();
     };
-  }, [level,myAbortController]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [level]);
 
   useEffect(() => {
     const setTimeSec = () =>
