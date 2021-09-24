@@ -17,6 +17,7 @@ function Game() {
   const { level } = useParams();
   
   const myAbortController =useMemo(()=>new AbortController(),[]);
+  console.log(myAbortController)
   useEffect(() => {
     if (level) {
       fetchGeneratedSudoku(
